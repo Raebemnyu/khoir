@@ -1,76 +1,307 @@
+<!-- SALIN DARI SINI -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil - Muhamad Wahbi</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profil - Raebemnyu</title>
+
+  <!-- Font & Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <audio id="click-sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_b70b7bcd25.mp3"></audio>
+
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f2f5;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: linear-gradient(-45deg, #141e30, #243b55, #1f1f1f, #3b3b3b);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    header h1 { font-size: 3rem; }
+    header p { font-size: 1.2rem; margin-top: 10px; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: auto;
+      padding: 10px 20px;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 10px;
+      transition: all 0.3s ease-in-out;
+      opacity: 0;
+      pointer-events: none;
+    }
+    nav ul.active {
+      display: flex;
+      opacity: 1;
+      pointer-events: auto;
+      animation: slideDown 0.4s ease forwards;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    nav li a {
+      padding: 15px 20px;
+      display: block;
+      font-weight: 500;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+    nav li a:hover {
+      color: #ff9900;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      nav ul.active {
+        display: flex;
+      }
+      nav li a {
+        border-top: 1px solid #eee;
+      }
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section.container {
+      background: #fff;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+      transform: translateY(30px);
+      opacity: 0;
+      transition: all 0.6s ease;
+    }
+    section.container.reveal {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #ffcc00;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #ffcc00;
+      color: #333;
+      border-radius: 30px;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #ffaa00;
+    }
+
+    #skills ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    #skills li {
+      background: #f0f0f0;
+      border-radius: 25px;
+      padding: 10px 15px;
+      font-size: 0.95rem;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    #skills li:hover {
+      transform: scale(1.05);
+    }
+
+    .experience-card {
+      padding: 20px;
+      background: #fafafa;
+      border-left: 4px solid #ffcc00;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: background 0.3s;
+    }
+    .experience-card:hover {
+      background: #fffce0;
+    }
+
+    #contact a {
+      color: #ff9900;
+      font-weight: 600;
+    }
+
+    footer {
+      background: #222;
+      color: #eee;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Raebemnyu</h1>
+    <p>Pelajar | Teknologi | Literasi</p>
+  </header>
 
-    <header>
-        <div class="header-content">
-            <h1>Muhamad Wahbi</h1>
-            <p>Pelajar | Teknologi | Literasi</p>
+  <nav>
+    <div class="nav-container">
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul id="nav-menu">
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#skills">Keahlian</a></li>
+        <li><a href="#experience">Pengalaman</a></li>
+        <li><a href="#contact">Kontak</a></li>
+        <div style="text-align: center; margin: 15px 0;">
+          <a href="dashboard.html" class="btn">← Kembali ke Dashboard</a>
         </div>
-    </header>
+      </ul>
+    </div>
+  </nav>
 
-    <nav>
-        <ul>
-            <li><a href="#about">Tentang</a></li>
-            <li><a href="#skills">Keahlian</a></li>
-            <li><a href="#experience">Pengalaman</a></li>
-            <li><a href="#contact">Kontak</a></li>
-        </ul>
-    </nav>
+  <main>
+    <section id="about" class="container">
+      <h2>Tentang Saya</h2>
+      <p>
+        Hi! My name is Raebemnyu. I'm a student at SMK Hasyim Asy'ari Bojong who’s passionate about technology, creative writing, and the environment. I’m currently exploring web development and enjoy writing poems and fiction in my free time.
+      </p>
+    </section>
 
-    <main>
-        <section id="about" class="container">
-            <h2>Tentang Saya</h2>
-            <p>
-                Saya adalah seorang pelajar yang memiliki minat di bidang teknologi dan literasi. 
-                Saya memiliki pengalaman dalam perakitan komputer, instalasi Windows, dan menulis puisi.
-            </p>
-            <a href="CV_Wahbi.pdf" download class="btn">Unduh CV</a>
-        </section>
+    <section id="skills" class="container">
+      <h2>Keahlian</h2>
+      <ul>
+        <li><i class="fas fa-pen-nib"></i> Menulis Puisi & Fiksi</li>
+        <li><i class="fas fa-microchip"></i> Perakitan Komputer</li>
+        <li><i class="fas fa-desktop"></i> Instalasi Windows</li>
+        <li><i class="fas fa-globe"></i> Pengelolaan Website</li>
+        <li><i class="fas fa-code"></i> Pemrograman Dasar</li>
+      </ul>
+    </section>
 
-        <section id="skills" class="container">
-            <h2>Keahlian</h2>
-            <ul>
-                <li>Menulis Puisi & Fiksi</li>
-                <li>Perakitan Komputer</li>
-                <li>Instalasi Windows</li>
-                <li>Pengelolaan Website</li>
-                <li>Penggunaan Android untuk Coding</li>
-            </ul>
-        </section>
+    <section id="experience" class="container">
+      <h2>Pengalaman</h2>
+      <article class="experience-card">
+        <h3>PKL di PT. Mulia Hati Studio</h3>
+        <p>Menangani jaringan, setting mikrotik, servis komputer, dan perakitan PC.</p>
+      </article>
+      <article class="experience-card">
+        <h3>Penulis di Blogger</h3>
+        <p>Aktif menulis cerita fiksi, puisi, dan membangun komunitas pembaca online.</p>
+      </article>
+      <article class="experience-card">
+        <h3>Juara 2 Lomba Cipta Puisi Romansa</h3>
+        <p>Meraih peringkat kedua dalam lomba cipta puisi tingkat remaja dengan karya bertema romansa.</p>
+      </article>
+    </section>
 
-        <section id="experience" class="container">
-            <h2>Pengalaman</h2>
+    <section id="contact" class="container">
+      <h2>Kontak Saya</h2>
+      <p><i class="fas fa-envelope"></i> Email: <a href="mailto:raebemnyu27@gmail.com">raebemnyu27@gmail.com</a></p>
+      <p><i class="fab fa-instagram"></i> Instagram: <a href="https://instagram.com/bu.akulelah" target="_blank">@bu.akulelah</a></p>
+      <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://linkedin.com/in/wahbi" target="_blank">raebemnyu space</a></p>
+      <p><i class="fas fa-blog"></i> Blogger: <a href="https://raebemnyu.blogspot.com" target="_blank">raebemnyu.blogspot.com</a></p>
+    </section>
+  </main>
 
-            <article class="experience-card">
-                <h3>PKL di PT. Al Barokah Computer</h3>
-                <p>Menangani masalah hardware, instalasi Windows, dan merakit komputer gaming.</p>
-            </article>
+  <footer>
+    <p>&copy; 2025 raebemnyuverse. Semua Hak Dilindungi.</p>
+  </footer>
 
-            <article class="experience-card">
-                <h3>Penulis di Wattpad</h3>
-                <p>Menulis cerita fiksi dan membangun komunitas pembaca.</p>
-            </article>
-        </section>
+  <script>
+    // Scroll Reveal Effect
+    const sections = document.querySelectorAll('.container');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
-        <section id="contact" class="container">
-            <h2>Kontak Saya</h2>
-            <p>Email: <a href="@bu.akulelah.com">acilberto10@gmail.com</a></p>
-            <p>Instagram: <a href="https://instagram.com/bu.akulelah" target="_blank">@bu.akulelah</a></p>
-        </section>
-    </main>
+    sections.forEach(section => observer.observe(section));
 
-    <footer>
-        <p>&copy; 2025 Muhamad Wahbi. Semua Hak Dilindungi.</p>
-    </footer>
+    // Menu Toggle + Suara
+    const toggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const sound = document.getElementById('click-sound');
 
-    <script src="script.js"></script>
-
+    toggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      sound.play();
+    });
+  </script>
 </body>
 </html>
