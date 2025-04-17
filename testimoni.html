@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Testimoni - Raebemnyu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: #f7fafc; color: #2d3748; padding: 20px; transition: background 0.3s, color 0.3s; }
+    .dark-mode { background: #1a202c; color: #f7fafc; }.container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: background 0.3s, color 0.3s;
+}
+.dark-mode .container { background: #2d3748; color: #f7fafc; }
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2b6cb0;
+}
+.dark-mode h1 { color: #63b3ed; }
+
+.testimonial-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.testimonial-card {
+  background: #fff;
+  padding: 20px;
+  border-left: 5px solid #ffcc00;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s, background 0.3s;
+}
+.dark-mode .testimonial-card { background: #2d3748; }
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #2d3748;
+}
+.dark-mode .testimonial-card h3 { color: #f7fafc; }
+
+.testimonial-card .role {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 15px;
+}
+.dark-mode .testimonial-card .role { color: #a0aec0; }
+
+.testimonial-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 30px;
+  text-decoration: none;
+  color: white;
+  background: #2b6cb0;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+.back-button:hover { background: #2c5282; }
+
+.toggle-mode {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #e2e8f0;
+  padding: 10px 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2d3748;
+  transition: background 0.3s;
+}
+.dark-mode .toggle-mode { background: #4a5568; color: #f7fafc; }
+.toggle-mode i { font-size: 18px; }
+
+  </style>
+</head>
+<body>
+  <div class="toggle-mode" onclick="toggleMode()">
+    <i class="fas fa-moon"></i> <span>Dark Mode</span>
+  </div>  <div class="container">
+    <h1>Testimoni</h1>
+    <div class="testimonial-list">
+      <div class="testimonial-card">
+        <h3>Bu Siti (Guru Pembimbing)</h3>
+        
+        <p>
+          "muhamad wahbi menunjukkan dedikasi luar biasa selama PKL. Ia tidak hanya mahir dalam perakitan komputer, tetapi juga selalu membantu teman sejawat dengan sabar. Kreativitasnya dalam menulis puisi membuat suasana kerja kami semakin hidup dan inspiratif."
+        </p>
+      </div><div class="testimonial-card">
+    <h3>Pak Ahmad (Ketua OSIS)</h3>
+    
+    <p>
+      "Sebagai penggiat alam dan penulis, Raebemnyu berhasil memimpin tim kegiatan penghijauan dengan sangat baik. Komunikasinya jelas, dan semangatnya menular kepada seluruh anggota. Hasil kerjanya juga tertulis dengan apik dalam blog sekolah."
+    </p>
+  </div>
+
+  <div class="testimonial-card">
+    <h3>fawaz (Teman sebangku )</h3>
+    
+    <p>
+      "Saya terkesan dengan dedikasi Raebemnyu dalam kegiatan lingkungan. Ia selalu hadir lebih awal, memimpin aksi bersih-bersih, dan membagikan ilmunya tentang pengomposan. Tulisan-tulisannya di blog memberi inspirasi bagi kami semua untuk terus peduli alam."
+    </p>
+  </div>
+</div>
+
+<a href="dashboard.html" class="back-button"><i class="fas fa-arrow-left"></i> Kembali ke Dashboard</a>
+
+  </div>  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      const text = document.querySelector('.toggle-mode span');
+      const icon = document.querySelector('.toggle-mode i');
+      text.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+      icon.classList.replace(isDark ? 'fa-moon' : 'fa-sun', isDark ? 'fa-sun' : 'fa-moon');
+    }
+    function loadMode() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.querySelector('.toggle-mode span').textContent = 'Light Mode';
+        document.querySelector('.toggle-mode i').classList.replace('fa-moon', 'fa-sun');
+      }
+    }
+    document.addEventListener('DOMContentLoaded', loadMode);
+  </script></body>
+</html>
