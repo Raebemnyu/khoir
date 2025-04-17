@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Saya</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }body {
+  background: #f7fafc;
+  color: #2d3748;
+  padding: 20px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dark-mode {
+  background: #1a202c;
+  color: #f7fafc;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s, color 0.3s;
+}
+
+.dark-mode .container {
+  background: #2d3748;
+  color: #f7fafc;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.blog-post {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 20px;
+}
+
+.dark-mode .blog-post {
+  border-color: #4a5568;
+}
+
+.blog-post h2 {
+  color: #2b6cb0;
+  margin-bottom: 10px;
+}
+
+.dark-mode .blog-post h2 {
+  color: #63b3ed;
+}
+
+.blog-post p {
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.blog-post .meta {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 10px;
+}
+
+.dark-mode .blog-post .meta {
+  color: #a0aec0;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  background: #2b6cb0;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+  font-size: 0.9rem;
+}
+
+.read-more:hover {
+  background: #2c5282;
+}
+
+.toggle-mode {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #e2e8f0;
+  padding: 10px 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2d3748;
+  transition: background 0.3s ease;
+}
+
+.dark-mode .toggle-mode {
+  background: #4a5568;
+  color: #f7fafc;
+}
+
+.toggle-mode i {
+  font-size: 18px;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: white;
+  background: #2b6cb0;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.back-button:hover {
+  background: #2c5282;
+}
+
+  </style>
+</head>
+<body>
+  
+  </div>  <div class="container">
+    <h1>Blog & Artikel</h1><div class="blog-post">
+  <h2>Menemukan Jati Diri Lewat Teknologi</h2>
+  <div class="meta">Ditulis oleh Raebemnyu - 17 April 2025</div>
+  <p>
+    Dalam era digital saat ini, teknologi bukan hanya alat bantu, melainkan bagian dari kehidupan...
+  </p>
+  <a href="artikel1.html" class="read-more">Lihat Selengkapnya &rarr;</a>
+</div>
+
+<div class="blog-post">
+  <h2>Puisi: Cinta di Balik Kode</h2>
+  <div class="meta">Ditulis oleh Raebemnyu - 12 April 2025</div>
+  <p>
+    Cinta dan teknologi mungkin terdengar bertentangan, tapi bagiku keduanya bisa bersatu...
+  </p>
+  <a href="artikel2.html" class="read-more">Lihat Selengkapnya &rarr;</a>
+</div>
+
+<div class="blog-post">
+  <h2>peran penggiat alam di lingkungan sekolah dalam membangun kesadaran lingkungan</h2>
+  <div class="meta">Ditulis oleh Raebemnyu - 5 April 2025</div>
+  <p>
+    Di antara deru aktivitas sekolah yang padat, hadir sosok‑sosok penggiat alam yang menjadi ujung...
+  </p>
+  <a href="artikel3.html" class="read-more">Lihat Selengkapnya &rarr;</a>
+</div>
+
+<a href="dashboard.html" class="back-button"><i class="fas fa-arrow-left"></i> Kembali ke Dashboard</a>
+
+  </div>  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      const isDark = document.body.classList.contains("dark-mode");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+
+      const modeText = document.querySelector(".toggle-mode span");
+      const modeIcon = document.querySelector(".toggle-mode i");
+      modeText.textContent = isDark ? "Light Mode" : "Dark Mode";
+      modeIcon.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
+    }
+
+    function loadMode() {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        document.querySelector(".toggle-mode span").textContent = "Light Mode";
+        document.querySelector(".toggle-mode i").classList.replace("fa-moon", "fa-sun");
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", loadMode);
+  </script></body>
+</html>
