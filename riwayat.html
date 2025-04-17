@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Riwayat - Raebemnyu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    nav {
+      background-color: #1f2937;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav h1 {
+      color: #fff;
+      font-size: 1.5rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1f2937, #374151);
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.1rem;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    section {
+      background: #fff;
+      margin-bottom: 25px;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    section.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #ffcc00;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    li {
+      margin-bottom: 15px;
+    }
+    .item-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .item-desc {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .btn-back {
+      display: inline-block;
+      margin: 30px 0;
+      padding: 10px 20px;
+      background: #ffcc00;
+      color: #333;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background 0.3s;
+    }
+    .btn-back:hover {
+      background: #ffaa00;
+    }
+
+    footer {
+      text-align: center;
+      background: #222;
+      color: #eee;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Raebemnyu</h1>
+    <ul>
+      
+    </ul>
+  </nav>
+
+  <header>
+    <h2>Riwayat Hidup</h2>
+    <p>Menampilkan perjalanan pendidikan, pengalaman, dan karya tulis</p>
+  </header>
+
+  <main>
+    <section class="reveal">
+      <h3>Pendidikan</h3>
+      <ul>
+        <li>
+          <span class="item-title">SMK Hasyim Asy'ari Bojong</span><br/>
+          <span class="item-desc">Jurusan TKJ | 2022 - Sekarang</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="reveal">
+      <h3>Pengalaman</h3>
+      <ul>
+        <li>
+          <span class="item-title">PKL di PT. Mulia Hati Studio</span><br/>
+          <span class="item-desc">Menangani jaringan, setting Mikrotik, servis komputer, perakitan PC</span>
+        </li>
+        <li>
+          <span class="item-title">Penulis di Blogger</span><br/>
+          <span class="item-desc">Menulis puisi, fiksi, dan membangun komunitas pembaca online</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="reveal">
+      <h3>Prestasi</h3>
+      <ul>
+        <li>
+          <span class="item-title">Juara 2 Lomba Cipta Puisi Romansa</span><br/>
+          <span class="item-desc">Kategori remaja | Menampilkan kemampuan dalam merangkai emosi dan kata</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="reveal">
+      <h3>Karya Tulis</h3>
+      <ul>
+        <li>
+          <span class="item-title">Puisi “Rindu dalam Diam”</span><br/>
+          <span class="item-desc">Puisi bertema romansa, diterbitkan di blog pribadi</span>
+        </li>
+        <li>
+          <span class="item-title">Cerpen “Langit Tanpa Awan”</span><br/>
+          <span class="item-desc">Cerita pendek bertema kesedihan remaja, ditulis di Wattpad</span>
+        </li>
+      </ul>
+    </section>
+
+    <a href="dashboard.html" class="btn-back">← Kembali ke Dashboard</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 raebemnyuverse. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script>
+    // Reveal animation saat scroll
+    const sections = document.querySelectorAll(".reveal");
+    window.addEventListener("scroll", () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) {
+          section.classList.add("reveal");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
